@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+$: << File.expand_path(File.dirname(__FILE__) + '/../lib')
+require 'rubygems'
+require 'cascading_rubies'
+
+WRITE_OUT = ARGV.delete('-w') || ARGV.delete('--write')
+
+def handle(path)
+  css = CascadingRubies.parse(path)
+  if WRITE_OUT
+    File.open(path.sub(/\.[^\.]+$/, '.css'), 'w') { |f| f.write(css) }
+  else
+    puts css
+  end
+end
+
+ARGV.each do |path|
+  if File.directory?(path)
+    Dir[path + '/*.rcss'].each { |p| handle(p) }
+  elsif File.exist?(path)
+    handle(path)
+  else
+    puts "File or path not found: #{path}"
+    exit(1)
+  end
+end
+
+unless ARGV.any?
+  puts 'Builds CSS from Ruby -- see http://github.com/seven1m/cascading_rubies'
+  puts 'Usage: rcss [-w] path1 [path2 [...]]'
+  puts 'path can be one or more files or a directory of .rcss files'
+  puts
+  puts 'Options:'
+  puts '  -w   --write             write .css file(s) at same path'
+  puts
+end

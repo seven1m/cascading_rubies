@@ -1,0 +1,48 @@
+# To see output: ruby bin/rcss example/example.rcss
+
+# Optional: include the Sass Color class for some color arithmetic
+# (`gem install haml` first)
+require 'rubygems'; require 'sass'; Color = Sass::Constant::Color
+
+# set some color variables
+bg_color = Color.parse('#eee')
+footer_bg_color = bg_color.minus(Color.parse('#222'))
+
+# nested selectors are properly handled and converted to multiple
+# selector lines in the output
+header {
+  border '1px solid black'
+  # use variables just like normal
+  background_color bg_color
+  padding '10px'
+  # underscore is converted to a leading dot (css class selector)
+  _search {
+    # symbols converted to string values
+    float :right
+    margin_right '20px'
+    # tags recognized from the array CascadingRubies::TAGS
+    a { text_decoration 'none' }
+  }
+  # optional argument referencing the selector object
+  nav do |n|
+    n.margin '10px'
+  end
+}
+
+# complex selector (unsupported by the syntax directly)
+s('body>#content') {
+  margin '10px'
+}
+
+# class selector with tag (no underscore necessary)
+div.bordered {
+  border '1px solid #ccc'
+}
+
+# pseudo-class selectors
+a(:visited) { color 'purple' }
+a(:link, :active) { color 'blue' }
+
+footer {
+  background_color footer_bg_color
+}
