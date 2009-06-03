@@ -8,43 +8,71 @@ class TestCascadingRubies < Test::Unit::TestCase
   # selectors
 
   def test_id_selector
-    assert_produces "#nav { }", "nav { }"
+    assert_produces "#nav { color: red; }", "nav { color :red }"
   end
   
   def test_class_selector
-    assert_produces ".links { }", "_links { }"
+    assert_produces ".links { color: red; }", "_links { color :red }"
   end
   
   def test_class_selector_with_tag
-    assert_produces "div.links { }", "div.links { }"
+    assert_produces "div.links { color: red; }", "div.links { color :red }"
   end
   
   def test_tag_selector
-    assert_produces "div { }", "div { }"
+    assert_produces "div { color: red; }", "div { color :red }"
   end
   
   def test_raw_selector
-    assert_produces "body>#content { }", "s('body>#content') { }"
-    assert_produces "#s { }", "s('#s') { }"
+    assert_produces "body>#content { color: red; }", "s('body>#content') { color :red }"
+    assert_produces "#s { color: red; }", "s('#s') { color :red }"
   end
   
   def test_pseudo_class_selector
-    assert_produces "a:link { }", "a(:link) { }"
-    assert_produces "a:hover, a:active { }", "a(:hover, :active) { }"
+    assert_produces "a:link { color: red; }", "a(:link) { color :red }"
+    assert_produces "a:hover, a:active { color: red; }", "a(:hover, :active) { color :red }"
+  end
+  
+  def test_multiple_comma_separated_selectors
+    assert_produces "#nav li, #nav a { color: red; }", "nav { li; a { color :red } }" # double
+    assert_produces "#nav li, #nav div, #nav a { color: red; }", "nav { li; div; a { color :red } }" # triple
+    output = <<-CSS
+      #nav li, #nav a:link, #nav a:visited { color: red; }
+      #nav a { color: green; }
+    CSS
+    code = <<-CSS
+      nav {
+        li; a(:link, :visited) {
+          color :red
+        }
+        a {
+          color :green
+        }
+      }
+    CSS
+    assert_produces output.gsub(/^\s+/, '').chomp, code # following selector isn't affected
+  end
+  
+  def test_empty_selectors_not_printed
+    assert_produces "#nav li { color: red; }", "nav { li { color :red } }"
   end
   
   # nesting
   
   def test_nested_selectors
     output = <<-CSS
-      #header { }
-      #header #nav { }
-      #header #nav a { }
+      #header { color: red; }
+      #header #nav { color: blue; }
+      #header #nav a { color: green; }
     CSS
     code = <<-CSS
       header {
+        color :red
         nav {
-          a { }
+          color :blue
+          a {
+            color :green
+          }
         }
       }
     CSS
@@ -53,12 +81,15 @@ class TestCascadingRubies < Test::Unit::TestCase
   
   def test_nested_pseudo_class_selector
     output = <<-CSS
-      #header { }
-      #header a:link { }
+      #header { color: red; }
+      #header a:link { color: blue; }
     CSS
     code = <<-CSS
       header {
-        a(:link) { }
+        color :red
+        a(:link) {
+          color :blue
+        }
       }
     CSS
     assert_produces output.gsub(/^\s+/, '').chomp, code
