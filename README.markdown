@@ -52,6 +52,30 @@ Installation
 ------------
 
     sudo gem install seven1m-cascading_rubies -s http://gems.github.com
+    
+Usage
+-----
+
+The gem includes a binary called `rcss`. Run it without args for usage details.
+Here are some examples:
+
+    rcss base.rcss nav.rcss           # print both rendered css files to screen
+    rcss -w base.rcss nav.rcss        # write rendered base.css and nav.css
+    rcss base.rcss nav.rcss > all.css # write to single file
+    rcss -w stylesheets               # render all .rcss files in directory
+    
+To use the library from within your own code:
+
+    require 'rubygems'
+    require 'cascading_rubies'
+    
+    css = CascadingRubies.parse(path_to_file)
+    # or...
+    css = CascadingRubies.new do
+      # css here
+    end
+    
+    rendered = css.to_s
 
 Shortcomings
 ------------
