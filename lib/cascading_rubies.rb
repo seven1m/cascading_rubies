@@ -38,16 +38,16 @@ class CascadingRubies < BlankSlate
       else # regular selector
         selector_name = [@__context_name, selector].compact.join(@__classed ? '' : ' ')
       end
-      if @bare and not @bare.__has_children # e.g. li; a { }
-        selector_name = "#{@bare.__context_name}, #{selector_name}"
+      if @__bare and not @__bare.__has_children # e.g. li; a { }
+        selector_name = "#{@__bare.__context_name}, #{selector_name}"
       end
       if dsl_code
         compiled = self.class.new(selector_name, &dsl_code)
         @__selectors << "#{selector_name} { #{compiled.__css}}" unless compiled.__css.empty?
         @__selectors += compiled.__selectors
-        @bare = nil
+        @__bare = nil
       else # e.g. div.something
-        @bare = self.class.new(selector_name, @__selectors, true, &dsl_code)
+        @__bare = self.class.new(selector_name, @__selectors, true, &dsl_code)
       end
     end
   end
