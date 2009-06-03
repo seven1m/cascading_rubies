@@ -7,7 +7,7 @@ require 'cascading_rubies'
 WRITE_OUT = ARGV.delete('-w') || ARGV.delete('--write')
 
 def handle(path)
-  css = CascadingRubies.parse(path)
+  css = CascadingRubies.open(path)
   if WRITE_OUT
     File.open(path.sub(/\.[^\.]+$/, '.css'), 'w') { |f| f.write(css) }
   else

@@ -62,9 +62,9 @@ class CascadingRubies < BlankSlate
     @__selectors.join("\n")
   end
   
-  def self.parse(path)
+  def self.open(path)
     obj = self.new
-    obj.instance_eval(File.read(path))
+    obj.instance_eval(File.read(path), path)
     obj
   end
   

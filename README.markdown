@@ -77,7 +77,7 @@ To use the library from within your own code:
     require 'rubygems'
     require 'cascading_rubies'
     
-    css = CascadingRubies.parse(path_to_file)
+    css = CascadingRubies.open(path_to_file)
     # or...
     css = CascadingRubies.new do
       # css here
