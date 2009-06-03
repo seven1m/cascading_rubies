@@ -1,10 +1,13 @@
 # Ruby DSL for generating CSS.
 # Copyright (c) 2009 Tim Morgan
 
-class CascadingRubies
+require 'blankslate'
 
-  undef_method('p')
+class CascadingRubies < BlankSlate
 
+  [:class, :respond_to?, :inspect].each { |m| reveal(m) }
+  undef_method(:p)
+  
   # list of tags taken from http://www.w3schools.com/tags/default.asp
   TAGS = %w(a abbr acronym address applet area b base basefont bdo big blockquote body br button caption center cite code col colgroup dd del dir div dfn dl dt em fieldset font form frame frameset h1toh6 head hr html i iframe img input ins isindex kbd label legend li link map menu meta noframes noscript object ol optgroup option p param pre q s samp script select small span strike strong style sub sup table tbody td textarea tfoot th thead title tr tt u ul var xmp)
 
