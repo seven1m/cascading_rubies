@@ -107,11 +107,11 @@ class TestCascadingRubies < Test::Unit::TestCase
   
   # misc
   
-  def test_can_use_p_tag
+  def test_use_p_tag
     assert_produces "p { color: red; }", "p { color :red }"
   end
   
-  def test_can_puts
+  def test_puts
     assert_produces "a { color: red; }", "a { color :red }"
     assert_nothing_raised do
       puts @css
