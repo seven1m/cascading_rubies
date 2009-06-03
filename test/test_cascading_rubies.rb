@@ -74,6 +74,12 @@ class TestCascadingRubies < Test::Unit::TestCase
     assert_produces "a { text-decoration: none; }", "a { text_decoration :none }"
   end
   
+  # misc
+  
+  def test_can_use_p_tag
+    assert_produces "p { color: red; }", "p { color :red }"
+  end
+  
   private
     
     def assert_produces(output, code)
