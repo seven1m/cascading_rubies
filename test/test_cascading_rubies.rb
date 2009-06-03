@@ -118,6 +118,14 @@ class TestCascadingRubies < Test::Unit::TestCase
     end
   end
   
+# FIXME: Weird, this test fails, but doing `bin/rcss example/example.rcss` works fine.
+#  def test_open_file
+#    assert_nothing_raised do
+#      @css = CascadingRubies.open(File.dirname(__FILE__) + '/../example/example.rcss')
+#    end
+#    assert @css.to_s.any?
+#  end
+  
   private
     
     def assert_produces(output, code)
