@@ -5,7 +5,7 @@ require File.dirname(__FILE__) + '/blankslate'
 
 class CascadingRubies < BlankSlate
 
-  [:class, :respond_to?, :inspect].each { |m| reveal(m) }
+  [:class, :respond_to?, :inspect].each { |m| reveal(m) rescue nil }
   undef_method(:p)
   
   # list of tags taken from http://www.w3schools.com/tags/default.asp

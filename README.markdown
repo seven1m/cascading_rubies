@@ -108,8 +108,8 @@ easy to get started hacking on the project.
 
 To run the tests, do this: `ruby test/test_cascading_rubies.rb`
 
-The library has been tested with Ruby 1.8.7 and Ruby 1.9.0. If you find problems
-with your Ruby of choice, please let me know.
+The library has been tested with Ruby 1.8.6, Ruby 1.8.7 and Ruby 1.9.1p0.
+If you find problems with your Ruby of choice, please let me know.
 
 ## License
 

@@ -123,7 +123,7 @@ class TestCascadingRubies < Test::Unit::TestCase
       assert_nothing_raised do
         @css = CascadingRubies.open(path)
       end
-      assert @css.to_s.any?
+      assert @css.to_s != ''
     end
   end
   
