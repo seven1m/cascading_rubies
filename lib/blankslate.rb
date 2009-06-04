@@ -14,7 +14,7 @@
 # BlankSlate is useful as a base class when writing classes that
 # depend upon <tt>method_missing</tt> (e.g. dynamic proxies).
 #
-class BlankSlate
+class BlankSlate #:nodoc:
   class << self
     
     # Hide the method named +name+ in the BlankSlate class.  Don't

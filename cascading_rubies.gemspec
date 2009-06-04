@@ -5,8 +5,8 @@ Gem::Specification.new do |s|
   s.email = "tim@timmorgan.org"
   s.homepage = "http://github.com/seven1m/cascading_rubies"
   s.summary = "Ruby DSL for generating CSS."
-  s.files = %w(README.markdown lib/cascading_rubies.rb lib/blankslate.rb bin/rcss test/test_cascading_rubies.rb example/example.rcss)
+  s.files = %w(README.rdoc lib/cascading_rubies.rb lib/blankslate.rb bin/rcss test/test_cascading_rubies.rb example/example.rcss example/block_example_1.rcss example/block_example_2.rcss example/no_block_example.rcss)
   s.require_path = "lib"
-  s.has_rdoc = false
+  s.has_rdoc = true
   s.executables = %w(rcss)
 end
