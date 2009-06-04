@@ -90,10 +90,12 @@ There are lots, no doubt. Here are few I thought up just now:
 
 * `s` is the method that builds selectors, so you can't specify an id #s directly
   in the DSL. Do this instead: `s('#s') { ... }`
-* And there are a couple other methods you can't use as ids (unless you use `s`):
-  * method\_name\_to\_selector
-  * dashify
+* And there are a couple other names you can't use as ids (unless you use `s`):
   * to\_s
+  * instance\_eval
+  * class
+  * inspect
+  * (others?)
 * You can't build a selector like div#links without using the raw selector method:
   `s('div#links') { ... }`
 
