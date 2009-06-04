@@ -1,7 +1,7 @@
 # Ruby DSL for generating CSS.
 # Copyright (c) 2009 Tim Morgan
 
-require 'blankslate'
+require File.dirname(__FILE__) + '/blankslate'
 
 class CascadingRubies < BlankSlate
 
