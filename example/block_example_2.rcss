@@ -1,0 +1,7 @@
+# Wrap the code in a block like this, calling the "CascadingRubies.css" class method.
+# This and the other block example should easily allow code outside the block
+# to reference Kernel level methods, require additional code, etc.
+
+CascadingRubies.css do
+  nav { color :red }
+end

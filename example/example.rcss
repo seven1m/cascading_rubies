@@ -5,31 +5,35 @@ require 'rubygems'; require 'sass'; Color = Sass::Constant::Color
 bg_color = Color.parse('#eee')
 footer_bg_color = bg_color.minus(Color.parse('#222'))
 
-header {
-  border '1px solid black'
-  background_color bg_color
-  padding '10px'
-  _search {
-    float :right
-    margin_right '20px'
-    a { text_decoration 'none' }
+CascadingRubies.css do
+
+  header {
+    border '1px solid black'
+    background_color bg_color
+    padding '10px'
+    _search {
+      float :right
+      margin_right '20px'
+      a { text_decoration 'none' }
+    }
+    nav do |n|
+      n.margin '10px'
+    end
   }
-  nav do |n|
-    n.margin '10px'
-  end
-}
 
-s('body>#content') {
-  margin '10px'
-}
+  s('body>#content') {
+    margin '10px'
+  }
 
-div.bordered {
-  border '1px solid #ccc'
-}
+  div.bordered {
+    border '1px solid #ccc'
+  }
 
-a(:visited) { color 'purple' }
-a(:link, :active) { color 'blue' }
+  a(:visited) { color 'purple' }
+  a(:link, :active) { color 'blue' }
 
-footer {
-  background_color footer_bg_color
-}
+  footer {
+    background_color footer_bg_color
+  }
+  
+end

@@ -63,9 +63,24 @@ class CascadingRubies < BlankSlate
   end
   
   def self.open(path)
-    obj = self.new
-    obj.instance_eval(File.read(path), path)
-    obj
+    #obj = self.new
+    #obj.instance_eval(File.read(path), path)
+    #obj
+    if (code = File.read(path)) =~ /^css do|CascadingRubies\.css do/
+      eval(code)
+    else
+      css(code)
+    end
+    @obj
+  end
+  
+  def self.css(code=nil, &block)
+    @obj = self.new
+    if code
+      @obj.instance_eval(code)
+    else
+      @obj.instance_eval(&block)
+    end
   end
   
   private

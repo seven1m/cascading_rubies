@@ -1,0 +1,7 @@
+# Wrap the code in a block like this, calling the "css" method.
+# This and the other block example should easily allow code outside the block
+# to reference Kernel level methods, require additional code, etc.
+
+css do
+  nav { color :red }
+end

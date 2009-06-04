@@ -55,8 +55,7 @@ or newlines, like so: `li; a { }`.
 
 ### Examples
 
-See example/example.rb for all the possible syntax, including use of the Sass
-Color class for some color arithmetic.
+See files in example directory for more help.
 
 ## Installation
 

@@ -1,0 +1,6 @@
+# Code in an rcss file does not strictly have to be wrapped in a block.
+# Unlike the two block examples, the entire file is run through instance_eval,
+# which makes using external libraries and other code a bit more difficult,
+# but allows for a super clean file.
+
+nav { color :red }
