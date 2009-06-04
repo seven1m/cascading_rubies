@@ -103,7 +103,7 @@ I'd love to hear from you if you have suggestions for improvement, bug fixes,
 or whatever. Email me at tim@timmorgan.org or fork the project and send a
 pull request.
 
-The library itself is less than a hundred lines; I hope that makes it fairly
+The library itself is just about a hundred lines; I hope that makes it fairly
 easy to get started hacking on the project.
 
 To run the tests, do this: `ruby test/test_cascading_rubies.rb`
