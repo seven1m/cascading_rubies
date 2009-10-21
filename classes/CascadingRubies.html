@@ -2,7 +2,7 @@
 <html lang='en'>
   <head>
     <title>: CascadingRubies [CascadingRubies]</title>
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
     <link href='../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
     <script type='text/javascript'>
       //<![CDATA[
@@ -76,7 +76,7 @@
             </div>
             <div id='methods'>
               <h2>Public class methods</h2>
-              <div class='public-class method' id='method-M000005'>
+              <div class='method public-class' id='method-M000005'>
                 <a name='M000005'>      </a>
                 <div class='synopsis'>
                   <span class='name'>css</span>
@@ -103,7 +103,7 @@
                   <pre id='M000005-source'><span class="ruby-comment cmt"># File lib/cascading_rubies.rb, line 116</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">css</span>(<span class="ruby-identifier">code</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;    <span class="ruby-ivar">@obj</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">new</span>&#x000A;    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>&#x000A;      <span class="ruby-ivar">@obj</span>.<span class="ruby-identifier">instance_eval</span>(<span class="ruby-identifier">code</span>)&#x000A;    <span class="ruby-keyword kw">else</span>&#x000A;      <span class="ruby-ivar">@obj</span>.<span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;    <span class="ruby-keyword kw">end</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-class method' id='method-M000001'>
+              <div class='method public-class' id='method-M000001'>
                 <a name='M000001'>      </a>
                 <div class='synopsis'>
                   <span class='name'>new</span>
@@ -141,7 +141,7 @@
                   <pre id='M000001-source'><span class="ruby-comment cmt"># File lib/cascading_rubies.rb, line 40</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">context_name</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">selectors</span>=[], <span class="ruby-identifier">classed</span>=<span class="ruby-keyword kw">false</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">dsl_code</span>)&#x000A;    <span class="ruby-ivar">@__context_name</span> = <span class="ruby-identifier">context_name</span>&#x000A;    <span class="ruby-ivar">@__css</span> = <span class="ruby-value str">''</span>&#x000A;    <span class="ruby-ivar">@__selectors</span> = <span class="ruby-identifier">selectors</span>&#x000A;    <span class="ruby-ivar">@__classed</span> = <span class="ruby-identifier">classed</span> <span class="ruby-comment cmt"># if true, method_missing calls are css class selectors -- not id selectors</span>&#x000A;    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dsl_code</span>.<span class="ruby-identifier">nil?</span>&#x000A;      <span class="ruby-comment cmt"># do nothing</span>&#x000A;    <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">dsl_code</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>&#x000A;      <span class="ruby-identifier">dsl_code</span>[<span class="ruby-keyword kw">self</span>]&#x000A;    <span class="ruby-keyword kw">else</span>&#x000A;      <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">dsl_code</span>)&#x000A;    <span class="ruby-keyword kw">end</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-class method' id='method-M000004'>
+              <div class='method public-class' id='method-M000004'>
                 <a name='M000004'>      </a>
                 <div class='synopsis'>
                   <span class='name'>open</span>
@@ -162,7 +162,7 @@
                 </div>
               </div>
               <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000002'>
+              <div class='method public-instance' id='method-M000002'>
                 <a name='M000002'>      </a>
                 <div class='synopsis'>
                   <span class='name'>s</span>
@@ -191,7 +191,7 @@
                   <pre id='M000002-source'><span class="ruby-comment cmt"># File lib/cascading_rubies.rb, line 58</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">s</span>(<span class="ruby-identifier">selector</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">dsl_code</span>)&#x000A;    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">dsl_code</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment cmt"># css rule</span>&#x000A;      <span class="ruby-ivar">@__css</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{selector}: #{args.join(' ')}; &quot;</span>&#x000A;    <span class="ruby-keyword kw">else</span>&#x000A;      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">dsl_code</span> <span class="ruby-comment cmt"># pseudo-class selector</span>&#x000A;        <span class="ruby-identifier">selector_name</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>&#x000A;          [[<span class="ruby-ivar">@__context_name</span>, <span class="ruby-identifier">selector</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' '</span>), <span class="ruby-value str">':'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">to_s</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">''</span>)&#x000A;        <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>)&#x000A;      <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt"># regular selector</span>&#x000A;        <span class="ruby-identifier">selector_name</span> = [<span class="ruby-ivar">@__context_name</span>, <span class="ruby-identifier">selector</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@__classed</span> <span class="ruby-operator">?</span> <span class="ruby-value str">''</span> <span class="ruby-operator">:</span> <span class="ruby-value str">' '</span>)&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@__bare</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-ivar">@__bare</span>.<span class="ruby-identifier">__has_children</span> <span class="ruby-comment cmt"># e.g. li; a { }</span>&#x000A;        <span class="ruby-identifier">selector_name</span> = <span class="ruby-node">&quot;#{@__bare.__context_name}, #{selector_name}&quot;</span>&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dsl_code</span>&#x000A;        <span class="ruby-identifier">compiled</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">selector_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">dsl_code</span>)&#x000A;        <span class="ruby-ivar">@__selectors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{selector_name} { #{compiled.__css}}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">compiled</span>.<span class="ruby-identifier">__css</span>.<span class="ruby-identifier">empty?</span>&#x000A;        <span class="ruby-ivar">@__selectors</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">compiled</span>.<span class="ruby-identifier">__selectors</span>&#x000A;        <span class="ruby-ivar">@__bare</span> = <span class="ruby-keyword kw">nil</span>&#x000A;      <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt"># e.g. div.something</span>&#x000A;        <span class="ruby-ivar">@__bare</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">selector_name</span>, <span class="ruby-ivar">@__selectors</span>, <span class="ruby-keyword kw">true</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">dsl_code</span>)&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    <span class="ruby-keyword kw">end</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-instance method' id='method-M000003'>
+              <div class='method public-instance' id='method-M000003'>
                 <a name='M000003'>      </a>
                 <div class='synopsis'>
                   <span class='name'>to_s</span>

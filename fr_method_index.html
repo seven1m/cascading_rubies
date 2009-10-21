@@ -2,7 +2,7 @@
 <html lang='en'>
   <head>
     <title>Methods [CascadingRubies]</title>
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
     <link href='rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
     <base target='docwin'>
   </head>
@@ -4356,6 +4356,14 @@
         	} else {
         		search_box.removeClassName('untouched');
         	}
+        	
+        	search_box.insert({
+        	  after: new Element('span', { 'class': 'clear_button' }).update('x').observe('click', function(e) {
+        	    e.stopPropagation()
+          	  search_box.setValue('')
+          	  search_box.focus()
+          	})
+          })
         });
         
         function searchInIndex(query) {
