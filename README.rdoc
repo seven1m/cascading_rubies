@@ -59,7 +59,7 @@ See files in example directory for more help.
 
 == Installation
 
-    sudo gem install seven1m-cascading_rubies -s http://gems.github.com
+    sudo gem install cascading_rubies -s http://gemcutter.org
     
 == Usage
 

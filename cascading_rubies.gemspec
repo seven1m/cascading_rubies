@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "cascading_rubies"
-  s.version = "0.2.1"
+  s.version = "0.2.2"
   s.author = "Tim Morgan"
   s.email = "tim@timmorgan.org"
   s.homepage = "http://github.com/seven1m/cascading_rubies"
